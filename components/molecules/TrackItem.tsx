@@ -30,13 +30,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     padding: 12,
-    backgroundColor: "#111",
     borderRadius: 8,
     marginVertical: 6,
     justifyContent: "space-between",
   },
   activeTrack: {
-    backgroundColor: "#333",
+    backgroundColor: "#1f293780",
     borderLeftWidth: 3,
     borderLeftColor: "#8855FF",
   },
@@ -61,6 +60,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 5,
+    backgroundColor: "#ffffff66"
   },
 });
 
