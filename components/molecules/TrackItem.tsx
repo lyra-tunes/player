@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 12,
     borderRadius: 8,
-    marginVertical: 6,
+    marginVertical: 8,
     justifyContent: "space-between",
   },
   activeTrack: {

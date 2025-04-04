@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { View, StyleSheet, ScrollView, TouchableOpacity, Dimensions, Animated, ViewStyle, TextStyle, StyleProp } from 'react-native';
+import { View, StyleSheet, ScrollView, TouchableOpacity, Dimensions, Animated, GestureResponderEvent } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import TrackItem from '@/components/molecules/TrackItem';
 import Search from '@/components/molecules/Search';
@@ -9,22 +9,24 @@ import Text from '@/components/atoms/Text';
 import Slider from '@/components/atoms/Slider';
 import TabBar from '@/components/molecules/TabBar';
 import PlaylistsTab from '@/components/molecules/PlaylistsTab';
+import { Track } from '@/interfaces/music';
+import { HomeState, HomeTab } from '@/interfaces/pages';
 
 export default function Home() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'tracks' | 'playlists'>('tracks');
-  const [isPlayerExpanded, setIsPlayerExpanded] = useState(false);
-  const [areControlsVisible, setAreControlsVisible] = useState(true);
-  const [currentTrack, setCurrentTrack] = useState({
+  const [searchQuery, setSearchQuery] = useState<HomeState['searchQuery']>('');
+  const [activeTab, setActiveTab] = useState<HomeTab>('tracks');
+  const [isPlayerExpanded, setIsPlayerExpanded] = useState<HomeState['isPlayerExpanded']>(false);
+  const [areControlsVisible, setAreControlsVisible] = useState<HomeState['areControlsVisible']>(true);
+  const [currentTrack, setCurrentTrack] = useState<HomeState['currentTrack']>({
     title: "Midnight Dreams",
     artist: "Luna Echo",
     duration: "3:57",
     extension: "mp3",
     isPlaying: true
   });
-  const [progress, setProgress] = useState(0.5);
-  const [isShuffling, setIsShuffling] = useState(false);
-  const [isRepeating, setIsRepeating] = useState(false);
+  const [progress, setProgress] = useState<HomeState['progress']>(0.5);
+  const [isShuffling, setIsShuffling] = useState<HomeState['isShuffling']>(false);
+  const [isRepeating, setIsRepeating] = useState<HomeState['isRepeating']>(false);
   const fadeAnim = useRef(new Animated.Value(1)).current;
   const expandAnim = useRef(new Animated.Value(0)).current;
 
@@ -266,6 +268,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     paddingHorizontal: 10,
+    paddingTop: 16,
   },
   contentContainer: {
     paddingBottom: 80, // Height of the player

@@ -1,14 +1,15 @@
 // /atoms/Slider.tsx - Atomic component for sliders
 import React from "react";
 import Slider from "@react-native-community/slider";
-import { StyleSheet } from "react-native";
-
-type SliderProps = {
-  value: number;
-  onChange: (value: number) => void;
-};
+import { StyleSheet, Platform } from "react-native";
+import { SliderProps } from "@/interfaces/components";
 
 const CustomSlider: React.FC<SliderProps> = ({ value, onChange }) => {
+  // Skip rendering on server-side to avoid useLayoutEffect warning
+  if (Platform.OS === 'web' && typeof window === 'undefined') {
+    return null;
+  }
+
   return (
     <Slider
       style={styles.slider}
