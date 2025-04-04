@@ -1,74 +1,79 @@
-import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import React from 'react';
+import { View, StyleSheet, TouchableOpacity, Image as RNImage } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Text from '../atoms/Text';
 
 type PlaylistItemProps = {
-    name: string;
-    songCount: number;
-    isHighlighted?: boolean;
-    image?: string | null; // Optional album image
+  name: string;
+  songCount: number;
+  image?: string | null;
+  onPress?: () => void;
 };
 
-const PlaylistItem: React.FC<PlaylistItemProps> = ({ name, songCount, isHighlighted, image }) => {
-    return (
-        <View style={[styles.container, isHighlighted && styles.highlightedBackground]}>
-            {image ? (
-                <Image source={{ uri: image }} style={[styles.albumImage]} />
-            ) : (
-                <View style={[styles.iconContainer, isHighlighted && styles.highlightedImageBackground]}>
-                    <MaterialIcons name="music-note" size={24} color="#bbb" />
-                </View>
-            )}
-            <View>
-                <Text style={styles.name}>{name}</Text>
-                <Text style={styles.count}>{songCount} songs</Text>
-            </View>
-        </View>
-    );
+const PlaylistItem: React.FC<PlaylistItemProps> = ({ 
+  name, 
+  songCount, 
+  image,
+  onPress 
+}) => {
+  return (
+    <TouchableOpacity style={styles.container} onPress={onPress}>
+      <View style={styles.imageContainer}>
+        {image ? (
+          <RNImage source={{ uri: image }} style={styles.image} />
+        ) : (
+          <View style={styles.placeholder}>
+            <MaterialCommunityIcons name="playlist-music" size={24} color="#fff" />
+          </View>
+        )}
+      </View>
+      <View style={styles.info}>
+        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.count}>{songCount} songs</Text>
+      </View>
+      <MaterialCommunityIcons name="chevron-right" size={24} color="#666" />
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
-    highlightedBackground: {
-        backgroundColor: "#1f293780"
-    },
-    container: {
-        flexDirection: "row",
-        alignItems: "center",
-        padding: 10,
-        borderRadius: 5,
-        marginBottom: 5,
-    },
-    iconContainer: {
-        width: 40,
-        height: 40,
-        justifyContent: "center",
-        alignItems: "center",
-        borderRadius: 5,
-        backgroundColor: "#ffffff66",
-        marginRight: 10,
-    },
-    albumImage: {
-        width: 40,
-        height: 40,
-        borderRadius: 5,
-        marginRight: 10,
-    },
-    highlightedImageBackground: {
-        backgroundColor: "#6B21A8", // Purple background when no image
-    },
-    highlightedBorder: {
-        borderWidth: 2,
-        borderColor: "#6B21A8", // Purple border when image exists
-    },
-    name: {
-        color: "#fff",
-        fontSize: 16,
-        fontWeight: "bold",
-    },
-    count: {
-        color: "#bbb",
-        fontSize: 12,
-    },
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 12,
+    borderBottomWidth: 1,
+    borderBottomColor: '#222',
+  },
+  imageContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 8,
+    overflow: 'hidden',
+    marginRight: 12,
+  },
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+  placeholder: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: '#8c8c8c',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  info: {
+    flex: 1,
+  },
+  name: {
+    fontSize: 16,
+    color: '#fff',
+    marginBottom: 4,
+  },
+  count: {
+    fontSize: 14,
+    color: '#666',
+  },
 });
 
 export default PlaylistItem;

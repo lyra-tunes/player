@@ -3,20 +3,21 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-type ImageProps = {
-  extension?: string;
-  style?: object;
-};
+interface ImageProps {
+  extension: string;
+  style?: any;
+}
 
 const Image: React.FC<ImageProps> = ({ extension, style }) => {
-  const getIconName = () => {
-    if (extension?.toLowerCase() === "mp4") return "video-outline";
-    return "music-note-outline";
-  };
+  const isVideo = extension.toLowerCase() === "mp4";
 
   return (
     <View style={[styles.iconContainer, style]}>
-      <MaterialCommunityIcons name={getIconName()} size={24} color="#bbb" />
+      <MaterialCommunityIcons 
+        name={isVideo ? "video" : "music"} 
+        size={24} 
+        color="#ffffff" 
+      />
     </View>
   );
 };
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 5,
-    backgroundColor: "#222",
+    backgroundColor: "#8c8c8c",
     justifyContent: "center",
     alignItems: "center",
   },

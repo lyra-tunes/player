@@ -1,6 +1,6 @@
 // /molecules/TrackItem.tsx - Molecule component combining text and icon into a song list item
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import Text from "../atoms/Text";
 import Image from "../atoms/Image";
 
@@ -10,18 +10,29 @@ type TrackItemProps = {
   duration: string;
   extension: string;
   isPlaying?: boolean;
+  onPress?: () => void;
 };
 
-const TrackItem: React.FC<TrackItemProps> = ({ title, artist, duration, extension, isPlaying = false }) => {
+const TrackItem: React.FC<TrackItemProps> = ({ 
+  title, 
+  artist, 
+  duration, 
+  extension, 
+  isPlaying = false,
+  onPress 
+}) => {
   return (
-    <View style={[styles.trackItem, isPlaying && styles.activeTrack]}>
+    <TouchableOpacity 
+      style={[styles.trackItem, isPlaying && styles.activeTrack]}
+      onPress={onPress}
+    >
       <Image extension={extension} style={styles.albumArt} />
       <View style={styles.textContainer}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.artist}>{artist}</Text>
       </View>
       <Text style={styles.duration}>{duration}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -60,7 +71,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 5,
-    backgroundColor: "#ffffff66"
+    backgroundColor: "#8c8c8c"
   },
 });
 
