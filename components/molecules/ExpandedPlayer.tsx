@@ -57,7 +57,7 @@ const ExpandedPlayer: React.FC<ExpandedPlayerProps> = ({
             <MaterialCommunityIcons
               name={isPlaying ? 'pause' : 'play'}
               size={48}
-              color="#8855FF"
+              color="#1E90FF"
             />
           </TouchableOpacity>
           

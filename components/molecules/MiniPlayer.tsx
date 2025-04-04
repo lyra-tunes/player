@@ -41,9 +41,9 @@ const MiniPlayer: React.FC<MiniPlayerProps> = ({
           </TouchableOpacity>
           <TouchableOpacity onPress={onPlayPause} style={styles.button}>
             <MaterialCommunityIcons
-              name={isPlaying ? 'pause' : 'play'}
-              size={28}
-              color="#8855FF"
+              name={isPlaying ? "pause" : "play"}
+              size={32}
+              color="#1E90FF"
             />
           </TouchableOpacity>
           <TouchableOpacity onPress={onNext} style={styles.button}>

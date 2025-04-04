@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   confirmText: {
-    color: '#8855FF',
+    color: '#1E90FF',
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -157,8 +157,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   checkboxSelected: {
-    backgroundColor: '#8855FF',
-    borderColor: '#8855FF',
+    backgroundColor: '#1E90FF',
+    borderColor: '#1E90FF',
   },
 });
 

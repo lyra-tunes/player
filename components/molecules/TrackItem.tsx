@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   activeTrack: {
     backgroundColor: "#1f293780",
     borderLeftWidth: 3,
-    borderLeftColor: "#8855FF",
+    borderLeftColor: "#1E90FF",
   },
   textContainer: {
     flex: 1,
@@ -72,6 +72,14 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 5,
     backgroundColor: "#8c8c8c"
+  },
+  playingIndicator: {
+    width: 3,
+    height: '100%',
+    position: 'absolute',
+    left: 0,
+    borderLeftWidth: 3,
+    borderLeftColor: "#1E90FF",
   },
 });
 

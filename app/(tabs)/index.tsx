@@ -195,7 +195,7 @@ export default function Home() {
                 <MaterialCommunityIcons 
                   name="shuffle" 
                   size={24} 
-                  color={isShuffling ? "#8855FF" : "#666"} 
+                  color={isShuffling ? "#1E90FF" : "#666"} 
                 />
               </TouchableOpacity>
               
@@ -243,7 +243,7 @@ export default function Home() {
                 <MaterialCommunityIcons 
                   name="repeat" 
                   size={24} 
-                  color={isRepeating ? "#8855FF" : "#666"} 
+                  color={isRepeating ? "#1E90FF" : "#666"} 
                 />
               </TouchableOpacity>
             </View>
@@ -338,7 +338,7 @@ const styles = StyleSheet.create({
     width: 64,
     height: 64,
     borderRadius: 32,
-    backgroundColor: '#8855FF',
+    backgroundColor: '#1E90FF',
     justifyContent: 'center',
     alignItems: 'center',
   },

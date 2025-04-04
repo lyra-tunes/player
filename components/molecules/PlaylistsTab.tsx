@@ -127,12 +127,9 @@ const PlaylistsTab: React.FC = () => {
         placeholder="Search playlists..."
       />
       
-      <TouchableOpacity 
-        onPress={handleAddPlaylist}
-        style={styles.addButton}
-      >
-        <MaterialCommunityIcons name="playlist-plus" size={24} color="#8855FF" />
-        <Text style={styles.addButtonText}>Create New Playlist</Text>
+      <TouchableOpacity style={styles.addButton} onPress={handleAddPlaylist}>
+        <MaterialCommunityIcons name="playlist-plus" size={24} color="#1E90FF" />
+        <Text style={styles.addButtonText}>Add Playlist</Text>
       </TouchableOpacity>
 
       <ScrollView 
@@ -197,9 +194,9 @@ const styles = StyleSheet.create({
     borderBottomColor: '#222',
   },
   addButtonText: {
-    color: '#8855FF',
     fontSize: 16,
-    marginLeft: 12,
+    color: '#1E90FF',
+    marginLeft: 8,
   },
 });
 

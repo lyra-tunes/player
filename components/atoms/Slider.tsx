@@ -17,7 +17,7 @@ const CustomSlider: React.FC<SliderProps> = ({ value, onChange }) => {
       maximumValue={1}
       value={value}
       onValueChange={onChange}
-      minimumTrackTintColor="#8855FF"
+      minimumTrackTintColor="#1E90FF"
       maximumTrackTintColor="#444"
       thumbTintColor="#fff"
     />

@@ -150,7 +150,7 @@ const ExpandedPlaylist: React.FC<ExpandedPlaylistProps> = ({
               </View>
 
               <TouchableOpacity style={styles.addButton} onPress={onAddTracks}>
-                <MaterialCommunityIcons name="plus" size={24} color="#8855FF" />
+                <MaterialCommunityIcons name="plus" size={24} color="#1E90FF" />
                 <Text style={styles.addButtonText}>Add Songs</Text>
               </TouchableOpacity>
 
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#000',
     borderBottomWidth: 1,
-    borderBottomColor: '#222',
+    borderBottomColor: '#1E90FF',
     paddingHorizontal: 16,
     zIndex: 1,
   },
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     borderBottomWidth: 2,
-    borderBottomColor: '#8855FF',
+    borderBottomColor: '#1E90FF',
     paddingVertical: 4,
   },
   count: {
@@ -295,8 +295,9 @@ const styles = StyleSheet.create({
     borderBottomColor: '#222',
   },
   addButtonText: {
-    color: '#8855FF',
+    color: '#1E90FF',
     fontSize: 16,
+    marginLeft: 8,
   },
   trackItem: {
     flexDirection: 'row',
@@ -314,8 +315,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   checkboxSelected: {
-    backgroundColor: '#8855FF',
-    borderColor: '#8855FF',
+    backgroundColor: '#1E90FF',
+    borderColor: '#1E90FF',
   },
 });
 

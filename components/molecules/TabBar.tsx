@@ -18,7 +18,7 @@ const TabBar: React.FC<TabBarProps> = ({ activeTab, onTabChange }) => {
         <MaterialCommunityIcons 
           name="music-note" 
           size={24} 
-          color={activeTab === 'tracks' ? '#8855FF' : '#666'} 
+          color={activeTab === 'tracks' ? '#1E90FF' : '#666'} 
         />
         <Text style={activeTab === 'tracks' ? styles.activeTabText : styles.tabText}>
           Tracks
@@ -32,7 +32,7 @@ const TabBar: React.FC<TabBarProps> = ({ activeTab, onTabChange }) => {
         <MaterialCommunityIcons 
           name="playlist-music" 
           size={24} 
-          color={activeTab === 'playlists' ? '#8855FF' : '#666'} 
+          color={activeTab === 'playlists' ? '#1E90FF' : '#666'} 
         />
         <Text style={activeTab === 'playlists' ? styles.activeTabText : styles.tabText}>
           Playlists
@@ -58,15 +58,14 @@ const styles = StyleSheet.create({
   },
   activeTab: {
     borderBottomWidth: 2,
-    borderBottomColor: '#8855FF',
+    borderBottomColor: '#1E90FF',
   },
   tabText: {
     fontSize: 16,
     color: '#666',
   },
   activeTabText: {
-    fontSize: 16,
-    color: '#8855FF',
+    color: '#1E90FF',
   },
 });
 
